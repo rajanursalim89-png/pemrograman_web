@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Sesuai Gambar</title>
+</head>
+
+<body style="margin:0; height:200vh;">
+
+<!-- HEADER BIRU (TETAP SAAT SCROLL) -->
+<div style="
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:60px;
+    background:#1e90ff;
+    z-index:1000;
+">
+</div>
+
+
+<div style="height:calc(200vh - 60px); margin-top:60px;"></div>
+
+
+<div id="abc"
+     style="
+        position:fixed;
+        display:flex;
+        gap:10px;
+        z-index:1001;
+     ">
+
+    <div style="width:45px;height:35px;background:#1e90ff;color:white;text-align:center;line-height:35px;">A</div>
+    <div style="width:45px;height:35px;background:#1e90ff;color:white;text-align:center;line-height:35px;">B</div>
+    <div style="width:45px;height:35px;background:#1e90ff;color:white;text-align:center;line-height:35px;">C</div>
+
+</div>
+
+<script>
+function aturLayout() {
+    var abc = document.getElementById("abc");
+    var lebar = window.innerWidth;
+
+  
+    abc.style.top = "";
+    abc.style.bottom = "";
+    abc.style.left = "";
+    abc.style.right = "";
+    abc.style.transform = "";
+
+    if (lebar <= 600) {
+        
+        abc.style.flexDirection = "row";
+        abc.style.bottom = "10px";
+        abc.style.left = "50%";
+        abc.style.transform = "translateX(-50%)";
+    } else {
+        
+        abc.style.flexDirection = "column";
+        abc.style.bottom = "10px";
+        abc.style.right = "10px";
+    }
+}
+
+aturLayout();
+window.addEventListener("resize", aturLayout);
+</script>
+
+</body>
+</html>
