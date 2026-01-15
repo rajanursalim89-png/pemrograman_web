@@ -1,0 +1,30 @@
+<pre>
+KENDARAAN KELUAR
+</pre>
+
+{% if status != "kosong" %}
+<form action="/proses-keluar" method="post">
+Plat Kendaraan : <input name="plat" required>
+<button>Enter</button>
+</form>
+{% endif %}
+
+{% if status == "berhasil" %}
+<pre>
+Plat         : {{ data.plat }}
+Jenis        : {{ data.jenis }}
+Merek        : {{ data.merek }}
+Waktu Masuk  : {{ data.masuk.strftime("%H:%M:%S") }}
+Waktu Keluar : {{ data.keluar.strftime("%H:%M:%S") }}
+Durasi       : {{ data.menit }} menit
+Biaya        : Rp {{ data.biaya }}
+</pre>
+
+{% elif status == "tidak_ditemukan" %}
+<pre>Kendaraan tidak ditemukan</pre>
+
+{% elif status == "kosong" %}
+<pre>Parkir kosong</pre>
+{% endif %}
+
+<a href="/">Kembali ke Menu</a>
