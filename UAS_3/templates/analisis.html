@@ -1,23 +1,42 @@
-<pre>
-ANALISIS PARKIR
-</pre>
+from flask import Flask, render_template
 
-<pre>
-HARIAN
-Motor  : {{ data.harian.motor }} | Rp {{ data.harian.pend_motor }}
-Mobil  : {{ data.harian.mobil }} | Rp {{ data.harian.pend_mobil }}
+app = Flask(__name__)
 
-MINGGUAN
-Motor  : {{ data.mingguan.motor }} | Rp {{ data.mingguan.pend_motor }}
-Mobil  : {{ data.mingguan.mobil }} | Rp {{ data.mingguan.pend_mobil }}
+@app.route('/analisis')
+def analisis_parkir():
+    # Simulasi pengambilan data dari database
+    # Ganti angka di bawah ini dengan logika hitungan asli Anda
+    pend_motor_harian = 2000 
+    pend_mobil_harian = 5000
+    
+    # Objek data untuk analisis
+    data = {
+        "harian": {
+            "motor": 1, "pend_motor": pend_motor_harian,
+            "mobil": 1, "pend_mobil": pend_mobil_harian
+        },
+        # Mingguan tetap sama dengan harian
+        "mingguan": {
+            "motor": 1, "pend_motor": pend_motor_harian,
+            "mobil": 1, "pend_mobil": pend_mobil_harian
+        },
+        # Bulanan = harian x 4
+        "bulanan": {
+            "motor": 4, "pend_motor": pend_motor_harian * 4,
+            "mobil": 4, "pend_mobil": pend_mobil_harian * 4
+        },
+        # Tahunan = bulanan x 12
+        "tahunan": {
+            "motor": 48, "pend_motor": (pend_motor_harian * 4) * 12,
+            "mobil": 48, "pend_mobil": (pend_mobil_harian * 4) * 12
+        }
+    }
 
-BULANAN
-Motor  : {{ data.bulanan.motor }} | Rp {{ data.bulanan.pend_motor }}
-Mobil  : {{ data.bulanan.mobil }} | Rp {{ data.bulanan.pend_mobil }}
+    # PENTING: Sertakan 'motor' dan 'mobil' di sini agar tidak error
+    return render_template('analisis.html', 
+                           motor=pend_motor_harian, 
+                           mobil=pend_mobil_harian, 
+                           data=data)
 
-TAHUNAN
-Motor  : {{ data.tahunan.motor }} | Rp {{ data.tahunan.pend_motor }}
-Mobil  : {{ data.tahunan.mobil }} | Rp {{ data.tahunan.pend_mobil }}
-</pre>
-
-<a href="/">Kembali ke Menu</a>
+if __name__ == '__main__':
+    app.run(debug=True)
