@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kelulusan Siswa</title>
+</head>
+<body>
+
+<h2>Input Batas Nilai Lulus</h2>
+
+<form method="POST">
+    <input type="number" name="batas" required>
+    <button type="submit">Proses</button>
+</form>
+
+{% if batas is not none %}
+    <h3>Batas Nilai: {{ batas }}</h3>
+    <h3>Jumlah Lulus: {{ lulus|length }}</h3>
+    <h3>Jumlah Tidak Lulus: {{ tidak_lulus|length }}</h3>
+
+    <h3>Yang Lulus:</h3>
+    <h>
+        {% for s in lulus %}
+        <li>{{loop.index}}{{ s.nama }} ({{ s.jk }}) - {{ s.nilai }}</li>
+        {% endfor %}
+    </h>
+
+    <h3>Yang Tidak Lulus:</h3>
+    <h>
+        {% for s in tidak_lulus %}
+        <li>{{loop.index}}{{ s.nama }} ({{ s.jk }}) - {{ s.nilai }}</li>
+        {% endfor %}
+    </h>
+{% endif %}
+
+</body>
+</html>

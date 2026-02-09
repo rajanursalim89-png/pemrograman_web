@@ -4,10 +4,10 @@ app = Flask(__name__)
 
 # Data untuk dikirim ke HTML
 data = {
-    "nama": "Rafini",
+    "nama": "RAJA NURSALIM",
     "ringkasan": "Biodata : saya mahasiswa unidayan (Universitas Dayanu Ikhsanuddin).",
     "minat": "Coding, Artificial Intelligence, Web Development dan desain proyek.",
-    "foto_url": "foto_rafini.png", 
+    "foto_url": "foto_raja.png", 
     "pendidikan": [
         {"tahun": "2012 - 2019", "instansi": "SDN 1 Banabungi"},
         {"tahun": "2019 - 2021", "instansi": "MTsN 1 Buton"},

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>produk</title>
+</head>
+<body>
+    </h2> Daftar produk </h2>
+<tr>
+    <th>Id</th>
+     <th>Nama</th>
+      <th>Harga</th>
+</tr>
+{% for p in produk %}
+<tr>
+     <th>{{p.id}}</th>
+     <th>{{p.nama}}/th>
+      <th>{{p.Harga}}</th>
+</tr>
+{% endfor %}
+<hr>
+<h2>Tambah produk</h2>
+<form method="POST">
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{{url_for ('produk') }}" kembali ></a>
+    
+    <form methode="Post" action="{{url_for('cari')}}">
+        <label> masukan nama produk </label><br>
+        <input type="text" name="q" value="{{query}}"placeholder="cari....">
+        <button type="submit" cari></button>
+        {% if query %}
+        <a href="{{url_for('cari')}}">reset</a>
+        {% if query %}
+    </form>
+    
+</body>
+</html>

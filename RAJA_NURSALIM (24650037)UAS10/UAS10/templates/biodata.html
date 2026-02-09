@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Biodata</title>
+</head>
+<body>
+
+{% if biodata %}
+
+    <h2>Hasil Biodata</h2>
+
+    <p>Nama: {{ biodata.nama }}</p>
+    <p>Tempat Lahir: {{ biodata.tempat_lahir }}</p>
+    <p>Tanggal Lahir: {{ biodata.tanggal_lahir }}</p>
+    <p>Jenis Kelamin: {{ biodata.jenis_kelamin }}</p>
+
+    <p>Hobi:</p>
+    <ul>
+        {% for h in biodata.hobi %}
+            <li>{{ h }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Input Ulang</a>
+
+{% else %}
+
+    <h2>Halaman Biodata</h2>
+
+    <form method="POST">
+        <label>Nama</label><br>
+        <input type="text" name="nama" required><br><br>
+
+        <label>Tempat Lahir</label><br>
+        <input type="text" name="tempat_lahir" required><br><br>
+
+        <label>Tanggal Lahir</label><br>
+        <input type="date" name="tanggal_lahir" required><br><br>
+
+        <label>Jenis Kelamin</label><br>
+        <input type="radio" name="jenis_kelamin" value="Laki-laki" required> Laki-laki<br>
+        <input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan<br><br>
+
+        <label>Hobi</label><br>
+        <input type="checkbox" name="hobi" value="Membaca"> Membaca<br>
+        <input type="checkbox" name="hobi" value="Olahraga"> Olahraga<br>
+        <input type="checkbox" name="hobi" value="Game"> Game<br>
+        <input type="checkbox" name="hobi" value="Traveling"> Traveling<br><br>
+
+        <button type="submit">Simpan</button>
+    </form>
+
+{% endif %}
+
+</body>
+</html>
